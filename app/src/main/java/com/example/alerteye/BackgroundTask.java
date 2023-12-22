@@ -13,14 +13,14 @@ import java.math.BigDecimal;
 public class BackgroundTask extends AsyncTask<Integer,String,String>{
 
     private Web3j web3j;
-    String url = "";
-    String resiver_account = "";
+    String url;
+    String resiver_account;
     Credentials credentials;
 
-    public BackgroundTask(){
+    public BackgroundTask(Credentials sender_credentials,String account){
         url = MainActivity.url;
-        resiver_account = MainActivity.resiver_account;
-        credentials = MainActivity.credentials;
+        resiver_account = account;
+        credentials = sender_credentials;
     }
 
     @Override
