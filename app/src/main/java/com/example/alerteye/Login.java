@@ -48,6 +48,7 @@ public class Login extends Fragment {
 
                     MainActivity.url = "http://192.168.1.11:7545";
                     MainActivity.user_credentials = Credentials.create("0x6b7d9e6e6a0adbec461dbc83be220986f2aeadf592fd6d0ccf715ccb483166fe");
+                    MainActivity.user_account_address = blockchainConnector.getAccountAddress(MainActivity.user_credentials);
 
                     blockchainConnector.connect();
                     Toast toast = Toast.makeText(getActivity(), "Connected", Toast.LENGTH_LONG);

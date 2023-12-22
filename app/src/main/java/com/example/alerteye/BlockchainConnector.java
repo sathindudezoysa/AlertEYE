@@ -2,14 +2,17 @@ package com.example.alerteye;
 import org.web3j.abi.datatypes.primitive.Int;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.DefaultBlockParameter;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthGetBalance;
-import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.core.methods.response.*;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Convert;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.sql.Struct;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class BlockchainConnector {
@@ -26,6 +29,7 @@ public class BlockchainConnector {
         Web3ClientVersion clientVersion = web3j.web3ClientVersion().sendAsync().get();
     }
 
+    // getiing user account address
     public String getAccountAddress(Credentials user_credentials){
         return user_credentials.getAddress().toString();
     }
@@ -44,6 +48,22 @@ public class BlockchainConnector {
     public void sendReward(Credentials sender_credentials, String resiver_account,Integer amount){
         new BackgroundTask(sender_credentials, resiver_account).execute(amount);
 
+    }
+
+    //getting the transation history
+    public String getTransationHistory(String account_address) throws ExecutionException, InterruptedException, IOException {
+        web3j = Web3j.build(new HttpService(MainActivity.url));
+
+        List<EthBlock.TransactionResult> txs = web3j.ethGetBlockByNumber(DefaultBlockParameterName.LATEST, true).send().getBlock().getTransactions();
+        txs.forEach(tx -> {
+            EthBlock.TransactionObject transaction = (EthBlock.TransactionObject) tx.get();
+
+
+            System.out.println(transaction.getFrom());
+        });
+
+//        String x = web3j.ethBlockNumber().sendAsync().get().getBlockNumber().toString();
+        return null;
     }
 }
 
