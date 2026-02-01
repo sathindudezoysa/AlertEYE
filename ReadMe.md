@@ -49,27 +49,24 @@ When drowsiness is detected, the system alerts the driver, helping to prevent po
 The project explored alternative solutions before selecting the wearable IR sensor approach:
 
 
-<div style="display: flex; align-items: center;">
-    <div style="flex: 1;">
-        <strong>Optimization Studies</strong>
-        <ul>
-            <li><strong>Sensor Positioning:</strong> Studies were conducted to identify the ideal sensor position for the best vision and readings. "Position 1" yielded the highest average accuracy and viewing area compared to four other positions tested.</li>
-            <li><strong>Accuracy:</strong> Comparative data shows the camera method has slightly higher accuracy than the IR sensor, but the IR sensor remains a viable, cost-effective alternative.</li>
-        </ul>
-    </div>
-    <img style="width: 50%; margin-left: 20px;" src="./asserts/position_tests.png" alt="AlertEYE System Overview">
-</div>
+<strong>Optimization Studies</strong>
+<br>
+<img src="./asserts/position_tests.png" align="right" width="50%" alt="Optimization Studies">
+<ul>
+    <li><strong>Sensor Positioning:</strong> Studies were conducted to identify the ideal sensor position for the best vision and readings. "Position 1" yielded the highest average accuracy and viewing area compared to four other positions tested.</li>
+    <li><strong>Accuracy:</strong> Comparative data shows the camera method has slightly higher accuracy than the IR sensor, but the IR sensor remains a viable, cost-effective alternative.</li>
+</ul>
+<br clear="right"/>
 
-<div style="display: flex; align-items: center;">
-    <img style="width: 50%; margin-right: 20px;" src="./asserts/dashcam_detection.png" alt="AlertEYE System Overview">
-    <div style="flex: 1;">
-        <strong>Alternative Approach: Dashcam Drowsiness Detection</strong>
-        <ul>
-            <li><strong>Method:</strong>  A camera mounted on the dashboard uses OpenCV and Python to detect drowsiness via facial recognition.</li>
-            <li><strong>Comparison:</strong> While the camera method offers high accuracy, the AlertEYE wearable solution focuses on portability and consistent performance.</li>
-        </ul>
-    </div>
-</div>
+<strong>Alternative Approach: Dashcam Drowsiness Detection</strong>
+<br>
+
+<img src="./asserts/dashcam_detection.png" align="left" width="50%" style="margin-right: 20px;" alt="Dashcam Detection">
+<ul>
+    <li><strong>Method:</strong> A camera mounted on the dashboard uses OpenCV and Python to detect drowsiness via facial recognition.</li>
+    <li><strong>Comparison:</strong> While the camera method offers high accuracy, the AlertEYE wearable solution focuses on portability and consistent performance.</li>
+</ul>
+<br clear="left"/>
 
 ## Benefits
 * **Safety:** Proactively detects signs of drowsiness to prevent accidents.
